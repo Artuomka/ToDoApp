@@ -1,4 +1,4 @@
-export default class DaoMock {
+class daoMock {
     constructor() {
         this.todoItems = [];
         this.todoItems.push(
@@ -6,16 +6,16 @@ export default class DaoMock {
             'Call mam',
             'Clean the Room',
             'Repair DVD Player');
-    };
+    }
 
     createItem(item) {
         this.todoItems.push(item);
         return ('created');
-    };
+    }
 
     readItems() {
         return this.todoItems;
-    };
+    }
 
     updateItem(item) {
         for (let i = 0; i < this.todoItems.length; i++) {
@@ -26,7 +26,7 @@ export default class DaoMock {
                 return ('notFound');
             }
         }
-    };
+    }
 
     deleteItem(item) {
         for (let i = 0; i < this.todoItems.length; i++) {
@@ -37,5 +37,7 @@ export default class DaoMock {
                 return ('notFound');
             }
         }
-    };
-};
+    }
+}
+
+module.exports = daoMock;

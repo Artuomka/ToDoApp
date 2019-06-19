@@ -1,4 +1,4 @@
-import DaoMock from './dal/daoMock';
+const DaoMock      = require('./dal/daoMock');
 const express      = require('express');
 const path         = require('path');
 const app          = express();
@@ -11,7 +11,7 @@ const port             = 80;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
-const newDaoMock = new DaoMock();
+const newDaoMock = new DaoMock;
 console.log(newDaoMock.readItems());
 
 
@@ -33,8 +33,8 @@ io.on('connection', (socket) => {
         console.log('Disconnected: %s sockets connected', connections.length);
     });
 
-    socket.on ('createTodoItem', (label)=>{
-        console.log('Create todoItem emitted. Data: ' +label);
+    socket.on('createTodoItem', (label) => {
+        console.log('Create todoItem emitted. Data: ' + label);
     });
 
 });
