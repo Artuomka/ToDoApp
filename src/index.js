@@ -33,9 +33,9 @@ io.on('connection', (socket) => {
         console.log('Disconnected: %s sockets connected', connections.length);
     });
 
-    socket.on('createTodoItem', (label) => {
-        console.log('Create todoItem emitted. Data: ' + label);
-        const result = todoItemObject.createItem(label);
+    socket.on('createTodoItem', (item) => {
+        console.log('Create todoItem emitted. Data: ' + item);
+        const result = todoItemObject.createItem(item);
         if (result === 'created') {
             console.log('todo item was created');
             console.log(todoItemObject.readItems());
