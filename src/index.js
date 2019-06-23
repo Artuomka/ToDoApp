@@ -1,4 +1,6 @@
-const DaoMock      = require('./dal/daoMock');
+const DaoMock    = require('./dal/daoMock');
+const DaoMongoDB = require('./dal/daoMongoDB');
+
 const express      = require('express');
 const path         = require('path');
 const app          = express();
@@ -11,9 +13,10 @@ const port             = 80;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
-const todoItemObject = new DaoMock;
-console.log(todoItemObject.readItems());
+// const todoItemObject = new DaoMock;
+const todoItemObject = new DaoMongoDB;
 
+//console.log(todoItemObject.readItems());
 
 const connections = [];
 
@@ -23,9 +26,10 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     connections.push(socket);
-    eventEmit('setItems', todoItemObject.readItems());
+    const itemsFromDB = await todoItemObject.readItems();
+    eventEmit('setItems', itemsFromDB);
     console.log('Connected: %s sockets connected', connections.length)
 
     socket.on('disconnect', (data) => {
@@ -33,9 +37,9 @@ io.on('connection', (socket) => {
         console.log('Disconnected: %s sockets connected', connections.length);
     });
 
-    socket.on('createTodoItem', (item) => {
-        console.log('Create todoItem emitted. Data: ' + item);
-        const result = todoItemObject.createItem(item);
+    socket.on('createTodoItem', async (item) => {
+        console.log('Create todoItem emitted. Data: ' + JSON.stringify(item));
+        const result = await todoItemObject.createItem(item);
         if (result === 'created') {
             console.log('todo item was created');
             console.log(todoItemObject.readItems());
@@ -45,39 +49,37 @@ io.on('connection', (socket) => {
 
     });
 
-    socket.on('deleteItem', (id)=>{
-        const result = todoItemObject.deleteItem(id);
-        if (result){
-            console.log('Item '+id+' deleted');
+    socket.on('deleteItem', async (id) => {
+        const result = await todoItemObject.deleteItem(id);
+        if (result) {
+            console.log('Item ' + id + ' deleted');
         } else {
-            console.log ('Item not found');
+            console.log('Item not found');
         }
     });
 
-    socket.on('onToggleImportant', (id)=>{
-        const result = todoItemObject.updateItemImportant(id);
-        if (result){
-            console.log('Item '+id+' toggle important');
+    socket.on('onToggleImportant', async (id) => {
+        const result = await todoItemObject.updateItemImportant(id);
+        if (result) {
+            console.log('Item ' + id + ' toggle important');
         } else {
-            console.log ('Item not found');
+            console.log('Item not found');
         }
     });
 
-    socket.on('onToggleDone', (id)=>{
-        const result = todoItemObject.updateItemDone(id);
-        if (result){
-            console.log('Item '+id+' toggle done');
+    socket.on('onToggleDone', async (id) => {
+        const result = await todoItemObject.updateItemDone(id);
+        if (result) {
+            console.log('Item ' + id + ' toggle done');
         } else {
-            console.log ('Item not found');
+            console.log('Item not found');
         }
     });
-
-
 
 
     function eventEmit(event, data) {
         socket.emit(event, data);
-    };
+    }
 });
 
 

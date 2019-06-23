@@ -9,42 +9,42 @@ class daoMock {
             {label: 'Repair DVD Player', imortant: false, done: false, id: 3});
     }
 
-    createItem(item) {
+    async createItem(item) {
         this.todoItems.push(item);
         return ('created');
     }
 
-    readItems() {
+    async readItems() {
         return this.todoItems;
     }
 
-    updateItemImportant(id) {
+    async updateItemImportant(id) {
         let result = false;
         for (let i = 0; i < this.todoItems.length; i++) {
             if (id === this.todoItems[i].id) {
-                const currentImportant = this.todoItems[i].important;
+                const currentImportant      = this.todoItems[i].important;
                 this.todoItems[i].important = !currentImportant;
-                result = true;
+                result                      = true;
                 return result;
             }
         }
         return result;
     }
 
-    updateItemDone(id) {
+    async updateItemDone(id) {
         let result = false;
         for (let i = 0; i < this.todoItems.length; i++) {
             if (id === this.todoItems[i].id) {
-                const currentDone = this.todoItems[i].important;
+                const currentDone      = this.todoItems[i].important;
                 this.todoItems[i].done = !currentDone;
-                result = true;
+                result                 = true;
                 return result;
             }
         }
         return result;
     }
 
-    deleteItem(id) {
+    async deleteItem(id) {
         let result = false;
         for (let i = 0; i < this.todoItems.length; i++) {
             if (id === this.todoItems[i].id) {
