@@ -1,5 +1,6 @@
 const DaoMock    = require('./dal/daoMock');
 const DaoMongoDB = require('./dal/daoMongoDB');
+const DaoMySQL   = require('./dal/daoMySQL');
 
 const express      = require('express');
 const path         = require('path');
@@ -9,12 +10,24 @@ const io           = require('socket.io')(server);
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const port             = 80;
+const port             = 9000;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
-// const todoItemObject = new DaoMock;
-const todoItemObject = new DaoMongoDB;
+const todoItemObject = new DaoMock;
+//const todoItemObject = new DaoMongoDB;
+//***************************************************************
+/*
+const todoItemObject = new DaoMySQL();
+dataBaseInit();
+
+
+async function dataBaseInit() {
+    const creationResultDB = await todoItemObject.createDB();
+    const creationResultTable = await todoItemObject.createTable();
+}
+*/
+//***************************************************************
 
 //console.log(todoItemObject.readItems());
 
