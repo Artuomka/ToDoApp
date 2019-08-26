@@ -8,7 +8,6 @@ class daoMongoDB {
         this.todoItems = [];
     }
 
-
     async createItem(item) {
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
@@ -100,6 +99,5 @@ class daoMongoDB {
     };
 
 }
-
 
 module.exports = daoMongoDB;

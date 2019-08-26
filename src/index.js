@@ -1,6 +1,8 @@
 const DaoMock    = require('./dal/daoMock');
 const DaoMongoDB = require('./dal/daoMongoDB');
 const DaoMySQL   = require('./dal/daoMySQL');
+const DaoProjectsMock   = require('./dal/daoProjectsMock');
+const DaoProjectListDataMock = require('./dal/daoProjectListDataMock');
 
 const express      = require('express');
 const path         = require('path');
@@ -15,6 +17,9 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
 const todoItemObject = new DaoMock;
+//const daoProjectsMock = new DaoProjectsMock();
+const daoProjectsMock = new DaoProjectListDataMock();
+
 //const todoItemObject = new DaoMongoDB;
 //***************************************************************
 /*
@@ -41,8 +46,19 @@ app.get('/*', function (req, res) {
 
 io.on('connection', async (socket) => {
     connections.push(socket);
-    const itemsFromDB = await todoItemObject.readItems();
-    eventEmit('setItems', itemsFromDB);
+
+    socket.on('getProjects', async ()=>{
+        console.log('getProjectsEmitted');
+        const projects = await daoProjectsMock.readItems();
+        eventEmit('setProjects', projects);
+    });
+
+    socket.on ('getListItems', async (listID)=>{
+        console.log('getListItems emitted');
+        const itemsFromDB = await todoItemObject.readItems();
+        eventEmit('setItems', itemsFromDB);
+    });
+
     console.log('Connected: %s sockets connected', connections.length)
 
     socket.on('disconnect', (data) => {
@@ -94,7 +110,6 @@ io.on('connection', async (socket) => {
         socket.emit(event, data);
     }
 });
-
 
 server.listen(port, () => {
     console.log('Server running on port ' + port);

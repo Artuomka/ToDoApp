@@ -35,7 +35,7 @@ class daoMock {
         let result = false;
         for (let i = 0; i < this.todoItems.length; i++) {
             if (id === this.todoItems[i].id) {
-                const currentDone      = this.todoItems[i].important;
+                const currentDone      = this.todoItems[i].done;
                 this.todoItems[i].done = !currentDone;
                 result                 = true;
                 return result;

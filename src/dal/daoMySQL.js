@@ -3,7 +3,6 @@ const mysql = require('mysql');
 class daoMySQL {
     constructor() {
         this.todoItems = [];
-
     }
 
     async createConnector() {
@@ -32,8 +31,6 @@ class daoMySQL {
                 console.log("Database created");
                 return result;
             });
-
-
         });
     };
 
@@ -68,7 +65,6 @@ class daoMySQL {
         });
     };
 
-
     async createItem(item) {
         const con           = await this.createConnector();
         let result          = false;
@@ -94,7 +90,6 @@ class daoMySQL {
             });
 
         });
-
         this.todoItems = await this.readItems();
         return ('created');
     };
@@ -152,7 +147,6 @@ class daoMySQL {
     };
 
     async updateItemDone(id) {
-
             const con   = await this.createConnector();
             let oldItem = this.searchInCurrentArray(id);
             let oldItemState = oldItem.done;
@@ -183,7 +177,6 @@ class daoMySQL {
 
     async deleteItem(id) {
         const con = await this.createConnector();
-
         con.connect((err) => {
             if (err) {
                 console.log('Error in deleting ' + err.toString());
@@ -198,7 +191,6 @@ class daoMySQL {
                 }
                 console.log('1 item deleted');
             });
-
         });
         this.todoItems = await this.readItems();
         return ('deleted');
@@ -226,7 +218,6 @@ class daoMySQL {
 
     }
 */
-
     searchInCurrentArray(id){
         let foundItem = undefined;
         for (let i = 0; i < this.todoItems.length; i++) {
@@ -238,6 +229,4 @@ class daoMySQL {
     }
 
 }
-
-
 module.exports = daoMySQL;
