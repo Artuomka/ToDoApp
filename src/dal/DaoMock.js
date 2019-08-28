@@ -1,4 +1,3 @@
-
 class DaoMock {
     constructor() {
         this.id           = 0;
@@ -64,6 +63,5 @@ class DaoMock {
         return result;
     }
 }
-
 module.exports = DaoMock;
 
