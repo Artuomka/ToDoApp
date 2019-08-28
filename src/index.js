@@ -1,8 +1,5 @@
-const DaoMock    = require('./dal/daoMock');
-const DaoMongoDB = require('./dal/daoMongoDB');
-const DaoMySQL   = require('./dal/daoMySQL');
-const DaoProjectsMock   = require('./dal/daoProjectsMock');
-const DaoProjectListDataMock = require('./dal/daoProjectListDataMock');
+const DaoMongoDB             = require('./dal/daoMongoDB');
+const DaoMock = require('./dal/DaoMock');
 
 const express      = require('express');
 const path         = require('path');
@@ -15,26 +12,9 @@ const cookieParser = require('cookie-parser');
 const port             = 9000;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
-
-const todoItemObject = new DaoMock;
-//const daoProjectsMock = new DaoProjectsMock();
-const daoProjectsMock = new DaoProjectListDataMock();
+const projectsObject = new DaoMock();
 
 //const todoItemObject = new DaoMongoDB;
-//***************************************************************
-/*
-const todoItemObject = new DaoMySQL();
-dataBaseInit();
-
-
-async function dataBaseInit() {
-    const creationResultDB = await todoItemObject.createDB();
-    const creationResultTable = await todoItemObject.createTable();
-}
-*/
-//***************************************************************
-
-//console.log(todoItemObject.readItems());
 
 const connections = [];
 
@@ -47,64 +27,65 @@ app.get('/*', function (req, res) {
 io.on('connection', async (socket) => {
     connections.push(socket);
 
-    socket.on('getProjects', async ()=>{
-        console.log('getProjectsEmitted');
-        const projects = await daoProjectsMock.readItems();
+    socket.on('getProjects', async () => {
+        console.log('get Projects Emitted');
+        const projects = await projectsObject.readLists();
         eventEmit('setProjects', projects);
     });
 
-    socket.on ('getListItems', async (listID)=>{
-        console.log('getListItems emitted');
-        const itemsFromDB = await todoItemObject.readItems();
-        eventEmit('setItems', itemsFromDB);
+    socket.on('onListChanged', async (changeData) => {
+        console.log('get List Changed Emittes');
+        const {listID} = changeData.listID;
+        const todoData = changeData.todoData;
+        console.log("List for change " + listID);
+        console.log("Data for change " + JSON.stringify(todoData));
+        const result = projectsObject.updateList(changeData);
+        if (result) {
+            console.log(listID + " updated");
+        } else {
+            console.log(listID + " not found");
+        }
+
     });
 
-    console.log('Connected: %s sockets connected', connections.length)
+    console.log('Connected: %s sockets connected', connections.length);
 
     socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
         console.log('Disconnected: %s sockets connected', connections.length);
     });
 
-    socket.on('createTodoItem', async (item) => {
-        console.log('Create todoItem emitted. Data: ' + JSON.stringify(item));
-        const result = await todoItemObject.createItem(item);
-        if (result === 'created') {
-            console.log('todo item was created');
-            console.log(todoItemObject.readItems());
-        } else {
-            console.log("todo item wasn't created");
-        }
-
-    });
-
-    socket.on('deleteItem', async (id) => {
-        const result = await todoItemObject.deleteItem(id);
+    socket.on('onListAdd', async (newList) => {
+        const {listName, listID} = newList;
+        console.log("List Add Emitted. New listName " + listName + " new list ID " + listID);
+        const result = await projectsObject.createList(newList);
         if (result) {
-            console.log('Item ' + id + ' deleted');
+            console.log("created");
         } else {
-            console.log('Item not found');
+            console.log("item wasn't created");
         }
     });
 
-    socket.on('onToggleImportant', async (id) => {
-        const result = await todoItemObject.updateItemImportant(id);
+    socket.on('onProjectEdited', async (editedProjectData) => {
+        console.log('on Project Edited Emitted');
+        const result = await projectsObject.editProject(editedProjectData);
         if (result) {
-            console.log('Item ' + id + ' toggle important');
+            console.log('Project was edited');
         } else {
-            console.log('Item not found');
+            console.log("Project wasn't found");
         }
+
     });
 
-    socket.on('onToggleDone', async (id) => {
-        const result = await todoItemObject.updateItemDone(id);
+    socket.on ('onProjectDeleted', async (listID) =>{
+        console.log('on Project Deleted Emitted');
+        const result = await projectsObject.deleteProject(listID);
         if (result) {
-            console.log('Item ' + id + ' toggle done');
+            console.log('Project was deleted');
         } else {
-            console.log('Item not found');
+            console.log("Project wasn't found");
         }
     });
-
 
     function eventEmit(event, data) {
         socket.emit(event, data);

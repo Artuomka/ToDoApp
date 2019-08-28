@@ -1,3 +1,5 @@
+//TODO realise daoMySQL with new Project List data sctructure
+
 const mysql = require('mysql');
 
 class daoMySQL {
