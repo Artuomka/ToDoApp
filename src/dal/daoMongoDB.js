@@ -1,103 +1,117 @@
 const mongo          = require('mongodb').MongoClient;
 const dbURL          = "mongodb://127.0.0.1:27017/";
-const dbName         = 'items_db';
-const collectionName = 'items';
+const dbName         = 'projects_db';
+const collectionName = 'projects';
 
 class daoMongoDB {
     constructor() {
-        this.todoItems = [];
+        this.projectItems = [];
     }
 
-    async createItem(item) {
-        const connection = await mongo.connect(dbURL);
-        const db         = await connection.db(dbName);
-        const collection = await db.createCollection(collectionName)
-        console.log('Item for create item ' + JSON.stringify(item));
-        collection.insertOne(item);
-        connection.close();
-        return ('created');
-    }
-
-    async readItems() {
+    async createList(item) {
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
         const collection = await db.createCollection(collectionName);
-        let dbArray      = await collection.find({}).toArray();
-        this.todoItems   = dbArray;
+        console.log('Item for create item ' + JSON.stringify(item));
+        collection.insertOne(item);
+        const {listID} = item;
+        const oldItem = await this.searchItem(listID);
+        const oldItemID = oldItem._id.toString();
+        await collection.updateOne({listID: listID},
+            {
+                $set: {listID: oldItemID}
+            }
+        );
         connection.close();
-        console.log('Items Array From DB' + JSON.stringify(dbArray));
-        return this.todoItems;
+        return (this.searchItem(oldItemID));
     }
 
-    async updateItemImportant(id) {
+    async readLists() {
+        const connection  = await mongo.connect(dbURL);
+        const db          = await connection.db(dbName);
+        const collection  = await db.createCollection(collectionName);
+        let dbArray       = await collection.find({}).toArray();
+        for (let i =0; i<dbArray.length; i++){
+            dbArray[i].listID = dbArray[i]._id;
+        }
+        this.projectItems = dbArray;
+        connection.close();
+        return this.projectItems;
+    }
+
+    async updateList(changeData) {
+        const {listID} = changeData.listID;
+        const todoData = changeData.todoData;
         let result        = false;
-        let itemForUpdate = await this.searchItem(id);
+        let itemForUpdate = await this.searchItem(listID);
         if (itemForUpdate) {
-            const currentImportant = itemForUpdate.important;
             const connection       = await mongo.connect(dbURL);
             const db               = await connection.db(dbName);
             const collection       = await db.createCollection(collectionName);
-            await collection.updateOne({id: id},
+            await collection.updateOne({listID: listID},
                 {
-                    $set: {important: !currentImportant}
+                    $set: {todoData: todoData}
                 }
             );
             result = true;
+            connection.close();
             return result;
         } else {
             return result;
         }
     };
 
-    async updateItemDone(id) {
-        let result          = false;
-        const itemForUpdate = await this.searchItem(id);
-        if (itemForUpdate) {
-            const currentDone = itemForUpdate.done;
-            const connection  = await mongo.connect(dbURL);
-            const db          = await connection.db(dbName);
-            const collection  = await db.createCollection(collectionName);
-            await collection.updateOne({id: id},
-                {
-                    $set: {done: !currentDone}
-                }
-            );
-            result = true;
-            return result;
-        } else {
-            return result;
-        }
-    };
-
-    async deleteItem(id) {
+    async deleteProject(listID) {
         let result       = false;
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
         const collection = await db.createCollection(collectionName);
-        const delResult  = await collection.deleteOne({id: id});
+        const delResult  = await collection.deleteOne({listID: listID});
         if (delResult.length != 0) {
             result = true;
+            connection.close();
             return result;
         } else {
             return result;
         }
     }
 
-    async searchItem(id) {
+    async searchItem(listID) {
         let searchResult = false;
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
         const collection = await db.createCollection(collectionName);
-        const findItem   = await collection.find({id: id}).toArray();
-        //   console.log("Item finded " +JSON.stringify(findItem));
-        if (findItem.length != 0) {
+        const findItem   = await collection.find({listID: listID}).toArray();
+        if (findItem.length > 0 ) {
+            connection.close();
             return findItem[0];
         } else {
             return searchResult;
         }
-
     };
 
+    async editProject(editedProjectData) {
+        const {listID, listName} = editedProjectData;
+        console.log ("Item ID for edit>>>" +listID);
+        let result     = false;
+        let itemForUpdate = await this.searchItem(listID);
+        //console.log("Project for edit " +JSON.stringify(itemForUpdate));r
+        if (itemForUpdate) {
+            const connection       = await mongo.connect(dbURL);
+            const db               = await connection.db(dbName);
+            const collection       = await db.createCollection(collectionName);
+            await collection.updateOne({listID: listID},
+                {
+                    $set: {listName: listName}
+                }
+            );
+            result = true;
+            connection.close();
+            return result;
+        } else {
+            return result;
+        }
+    };
 }
 
 module.exports = daoMongoDB;

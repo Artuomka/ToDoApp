@@ -12,9 +12,9 @@ const cookieParser = require('cookie-parser');
 const port             = 9000;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
-const projectsObject = new DaoMock();
+//const projectsObject = new DaoMock();
 
-//const todoItemObject = new DaoMongoDB;
+const projectsObject = new DaoMongoDB;
 
 const connections = [];
 
@@ -56,15 +56,25 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('onListAdd', async (newList) => {
+       const result = await createListWithTrueID(newList, continueCreating);
+    });
+
+    async function createListWithTrueID(newList, callback) {
         const {listName, listID} = newList;
-        console.log("List Add Emitted. New listName " + listName + " new list ID " + listID);
-        const result = await projectsObject.createList(newList);
-        if (result) {
-            console.log("created");
+      //  console.log("List Add Emitted. New listName " + listName + " new list ID " + listID);
+        const resultItem = await projectsObject.createList(newList, callback);
+        console.log(JSON.stringify(resultItem)+ "LIST CREATED");
+        continueCreating(resultItem);
+    }
+
+    function continueCreating (resultItem) {
+        if (resultItem) {
+            console.log("created new List with ID " +JSON.stringify(resultItem));
+            eventEmit('setNewListItem', resultItem);
         } else {
             console.log("item wasn't created");
         }
-    });
+    }
 
     socket.on('onProjectEdited', async (editedProjectData) => {
         console.log('on Project Edited Emitted');

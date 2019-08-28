@@ -4,6 +4,14 @@
     <list default="true" id="b7432390-013b-42b9-bd07-4e6ba3904172" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/src/dal/daoMock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/static/css/main.b45d9c38.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/static/css/main.b45d9c38.chunk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/static/js/2.63587c84.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/static/js/2.63587c84.chunk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/DaoMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/DaoMock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/daoMongoDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/daoMongoDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,29 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+            <state relative-caret-position="-12">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoMock.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DaoMock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dal/DaoMock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="daoMySQL.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dal/daoMySQL.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="1300">
+              <caret line="65" column="22" lean-forward="true" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -47,8 +46,8 @@
       <file leaf-file-name="daoMongoDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dal/daoMongoDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
-              <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+            <state relative-caret-position="2260">
+              <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -61,6 +60,11 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>console.log</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,13 +80,13 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/src/dal/daoH2.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/dal/daoMongoDB.js" />
         <option value="$PROJECT_DIR$/src/dal/daoProjectsMock.js" />
         <option value="$PROJECT_DIR$/src/dal/daoMock.js" />
         <option value="$PROJECT_DIR$/src/dal/daoProjectListDataMock.js" />
         <option value="$PROJECT_DIR$/src/dal/daoMySQL.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/dal/DaoMock.js" />
+        <option value="$PROJECT_DIR$/src/dal/daoMongoDB.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
   </component>
@@ -189,7 +193,7 @@
       <workItem from="1566669684885" duration="2384000" />
       <workItem from="1566672191707" duration="1558000" />
       <workItem from="1566821352902" duration="16763000" />
-      <workItem from="1566975507329" duration="14732000" />
+      <workItem from="1566975507329" duration="35019000" />
     </task>
     <task id="LOCAL-00001" summary="server init">
       <created>1560802486949</created>
@@ -275,11 +279,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566992665058</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="little changes">
+      <created>1566993589252</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1566993589252</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99051000" />
+    <option name="totallyTimeSpent" value="119338000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,17 +303,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.19636963" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.18481848" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32838285" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.18481848" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.24752475" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -330,7 +342,8 @@
     <MESSAGE value="MySQL CRUD Added,&#10;Net rework working with id,&#10;New rework working async." />
     <MESSAGE value="Little changes. Need rework for new data structure" />
     <MESSAGE value="DaoMock for new project lists data ctructures realised" />
-    <option name="LAST_COMMIT_MESSAGE" value="DaoMock for new project lists data ctructures realised" />
+    <MESSAGE value="little changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="little changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/dal/daoMongoDB.js">
@@ -574,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dal/daoMongoDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2000">
-          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dal/daoProjectsMock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -588,27 +594,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/dal/daoMock.js~Stashed changes">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dal/daoMySQL.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="160">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dal/daoMock.js~Stashed changes">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/dal/daoMongoDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2260">
+          <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dal/DaoMock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="1300">
+          <caret line="65" column="22" lean-forward="true" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
