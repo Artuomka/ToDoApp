@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7432390-013b-42b9-bd07-4e6ba3904172" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/service-worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/DaoMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/DaoMock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +24,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="320">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -187,7 +192,7 @@
       <workItem from="1566821352902" duration="16763000" />
       <workItem from="1566975507329" duration="35193000" />
       <workItem from="1567097564969" duration="6658000" />
-      <workItem from="1567105277361" duration="7261000" />
+      <workItem from="1567105277361" duration="7792000" />
     </task>
     <task id="LOCAL-00001" summary="server init">
       <created>1560802486949</created>
@@ -329,11 +334,18 @@
       <option name="project" value="LOCAL" />
       <updated>1567113232404</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="frontend fixes">
+      <created>1567113731312</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1567113731312</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133431000" />
+    <option name="totallyTimeSpent" value="133962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -346,15 +358,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.19636963" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.18481848" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.26237625" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.26237625" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -658,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="320">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
         </state>
       </provider>
     </entry>

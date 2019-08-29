@@ -14,6 +14,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 //const projectsObject = new DaoMock();
 
 const projectsObject = new DaoMongoDB;
+const port             = 5000;
 
 const connections = [];
 app.set('port', (process.env.PORT || 5000));
@@ -92,6 +93,6 @@ io.on('connection', async (socket) => {
     }
 });
 
-app.listen(app.get('port'), function() {
-    console.log("Node app is running at localhost:" + app.get('port'))
+server.listen(port, () => {
+    console.log('Server running on port ' + port);
 });
