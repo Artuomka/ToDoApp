@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7432390-013b-42b9-bd07-4e6ba3904172" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/DaoMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/DaoMock.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -48,8 +47,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            <state relative-caret-position="240">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -148,7 +147,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../todo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -198,7 +197,7 @@
       <workItem from="1566821352902" duration="16763000" />
       <workItem from="1566975507329" duration="35193000" />
       <workItem from="1567097564969" duration="6658000" />
-      <workItem from="1567105277361" duration="458000" />
+      <workItem from="1567105277361" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="server init">
       <created>1560802486949</created>
@@ -316,7 +315,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126628000" />
+    <option name="totallyTimeSpent" value="127575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,14 +330,14 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.19636963" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.18481848" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.24752475" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.24752475" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -641,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        <state relative-caret-position="240">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
         </state>
       </provider>
     </entry>

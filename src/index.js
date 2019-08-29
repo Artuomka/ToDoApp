@@ -9,7 +9,6 @@ const io           = require('socket.io')(server);
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const port             = 9000;
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 //const projectsObject = new DaoMock();
@@ -17,7 +16,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 const projectsObject = new DaoMongoDB;
 
 const connections = [];
-
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
@@ -93,6 +92,6 @@ io.on('connection', async (socket) => {
     }
 });
 
-server.listen(port, () => {
-    console.log('Server running on port ' + port);
+app.listen(app.get('port'), function() {
+    console.log("Node app is running at localhost:" + app.get('port'))
 });
