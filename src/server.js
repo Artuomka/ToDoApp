@@ -14,7 +14,6 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 //const projectsObject = new DaoMock();
 
 const projectsObject = new DaoMongoDB;
-const port             = 5000;
 
 const connections = [];
 app.use(express.static(path.join(__dirname, 'build')));
@@ -92,6 +91,4 @@ io.on('connection', async (socket) => {
     }
 });
 
-server.listen(port, () => {
-    console.log('Server running on port ' + port);
-});
+server.listen(process.env.PORT || 5000);
