@@ -12,7 +12,6 @@ class daoMongoDB {
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
         const collection = await db.createCollection(collectionName);
-        console.log('Item for create item ' + JSON.stringify(item));
         collection.insertOne(item);
         const {listID} = item;
         const oldItem = await this.searchItem(listID);
@@ -92,10 +91,8 @@ class daoMongoDB {
 
     async editProject(editedProjectData) {
         const {listID, listName} = editedProjectData;
-        console.log ("Item ID for edit>>>" +listID);
         let result     = false;
         let itemForUpdate = await this.searchItem(listID);
-        //console.log("Project for edit " +JSON.stringify(itemForUpdate));r
         if (itemForUpdate) {
             const connection       = await mongo.connect(dbURL);
             const db               = await connection.db(dbName);

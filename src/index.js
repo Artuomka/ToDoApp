@@ -28,17 +28,13 @@ io.on('connection', async (socket) => {
     connections.push(socket);
 
     socket.on('getProjects', async () => {
-        console.log('get Projects Emitted');
         const projects = await projectsObject.readLists();
         eventEmit('setProjects', projects);
     });
 
     socket.on('onListChanged', async (changeData) => {
-        console.log('get List Changed Emittes');
         const {listID} = changeData.listID;
         const todoData = changeData.todoData;
-        console.log("List for change " + listID);
-        console.log("Data for change " + JSON.stringify(todoData));
         const result = projectsObject.updateList(changeData);
         if (result) {
             console.log(listID + " updated");
@@ -60,10 +56,7 @@ io.on('connection', async (socket) => {
     });
 
     async function createListWithTrueID(newList, callback) {
-        const {listName, listID} = newList;
-      //  console.log("List Add Emitted. New listName " + listName + " new list ID " + listID);
         const resultItem = await projectsObject.createList(newList, callback);
-        console.log(JSON.stringify(resultItem)+ "LIST CREATED");
         continueCreating(resultItem);
     }
 
@@ -77,7 +70,6 @@ io.on('connection', async (socket) => {
     }
 
     socket.on('onProjectEdited', async (editedProjectData) => {
-        console.log('on Project Edited Emitted');
         const result = await projectsObject.editProject(editedProjectData);
         if (result) {
             console.log('Project was edited');
@@ -88,7 +80,6 @@ io.on('connection', async (socket) => {
     });
 
     socket.on ('onProjectDeleted', async (listID) =>{
-        console.log('on Project Deleted Emitted');
         const result = await projectsObject.deleteProject(listID);
         if (result) {
             console.log('Project was deleted');
