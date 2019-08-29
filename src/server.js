@@ -17,7 +17,6 @@ const projectsObject = new DaoMongoDB;
 const port             = 5000;
 
 const connections = [];
-app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
