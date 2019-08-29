@@ -1,11 +1,10 @@
-
 class DaoMock {
     constructor() {
         this.id           = 0;
         this.ProjectItems = [];
         this.ProjectItems.push(
             // {
-            //     listName: 'Todo List 1',
+            //     listName: 'List 1',
             //     listID: 1,
             //     todoData: [
             //         {label: 'Buy a milk', important: false, done: false, id: 0},
@@ -18,8 +17,10 @@ class DaoMock {
     }
 
     async createList(item) {
-        this.ProjectItems.push(item);
-        return ('created');
+        const newItem = item;
+        newItem.listID = this.newID();
+        this.ProjectItems.push(newItem);
+        return (newItem.listID);
     }
 
     async readLists() {
@@ -59,11 +60,15 @@ class DaoMock {
             if (listID === this.ProjectItems[i].listID) {
                 this.ProjectItems[i].listName = listName;
                 result = true;
+                return result;
             }
         }
         return result;
     }
-}
 
+    newID(){
+        return '_' + Math.random().toString(36).substr(2, 9);
+    };
+}
 module.exports = DaoMock;
 
