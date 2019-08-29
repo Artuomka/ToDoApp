@@ -20,8 +20,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="49" column="78" lean-forward="true" selection-start-line="49" selection-start-column="78" selection-end-line="49" selection-end-column="78" />
+            <state relative-caret-position="240">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -87,9 +87,9 @@
         <option value="$PROJECT_DIR$/src/dal/daoMySQL.js" />
         <option value="$PROJECT_DIR$/src/dal/DaoMock.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/server.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/dal/daoMongoDB.js" />
+        <option value="$PROJECT_DIR$/src/server.js" />
       </list>
     </option>
   </component>
@@ -193,7 +193,7 @@
       <workItem from="1566821352902" duration="16763000" />
       <workItem from="1566975507329" duration="35193000" />
       <workItem from="1567097564969" duration="6658000" />
-      <workItem from="1567105277361" duration="5548000" />
+      <workItem from="1567105277361" duration="6295000" />
     </task>
     <task id="LOCAL-00001" summary="server init">
       <created>1560802486949</created>
@@ -307,11 +307,25 @@
       <option name="project" value="LOCAL" />
       <updated>1567105384158</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="frontend fixes">
+      <created>1567111704273</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567111704273</updated>
+    </task>
+    <task id="LOCAL-00018" summary="frontend fixes">
+      <created>1567112252013</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1567112252013</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131718000" />
+    <option name="totallyTimeSpent" value="132465000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,7 +338,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18898809" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.19636963" />
@@ -367,7 +380,8 @@
     <MESSAGE value="Realised Working with mongoDB&#10;ID for projects fixed" />
     <MESSAGE value="little refactoring" />
     <MESSAGE value="remote mongo added" />
-    <option name="LAST_COMMIT_MESSAGE" value="remote mongo added" />
+    <MESSAGE value="frontend fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend fixes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/dal/daoMySQL.js">
@@ -636,8 +650,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="49" column="78" lean-forward="true" selection-start-line="49" selection-start-column="78" selection-end-line="49" selection-end-column="78" />
+        <state relative-caret-position="240">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
         </state>
       </provider>
     </entry>
