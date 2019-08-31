@@ -13,10 +13,10 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 //const projectsObject = new DaoMock();
 
-const projectsObject = new DaoMongoDB();
+const projectsObject = new DaoMongoDB;
 
 const connections = [];
-app.use(express.static(path.join(__dirname, '/src/build/static')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
