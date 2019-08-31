@@ -1,5 +1,5 @@
-const DaoMongoDB             = require('./dal/daoMongoDB');
-const DaoMock = require('./dal/DaoMock');
+const DaoMongoDB = require('./dal/daoMongoDB');
+const DaoMock    = require('./dal/DaoMock');
 
 const express      = require('express');
 const path         = require('path');
@@ -13,7 +13,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 //const projectsObject = new DaoMock();
 
-const projectsObject = new DaoMongoDB;
+const projectsObject = new DaoMongoDB();
 
 const connections = [];
 app.use(express.static(path.join(__dirname, 'build')));
@@ -32,8 +32,7 @@ io.on('connection', async (socket) => {
 
     socket.on('onListChanged', async (changeData) => {
         const {listID} = changeData.listID;
-        const todoData = changeData.todoData;
-        const result = projectsObject.updateList(changeData);
+        const result   = projectsObject.updateList(changeData);
         if (result) {
             console.log(listID + " updated");
         } else {
@@ -50,7 +49,10 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('onListAdd', async (newList) => {
-       const result = await createListWithTrueID(newList, continueCreating);
+        if (newList === null || newList === undefined) {
+            return;
+        }
+        const result = await createListWithTrueID(newList, continueCreating);
     });
 
     async function createListWithTrueID(newList, callback) {
@@ -58,9 +60,9 @@ io.on('connection', async (socket) => {
         continueCreating(resultItem);
     }
 
-    function continueCreating (resultItem) {
+    function continueCreating(resultItem) {
         if (resultItem) {
-            console.log("created new List with ID " +JSON.stringify(resultItem));
+            console.log("created new List with ID " + JSON.stringify(resultItem));
             eventEmit('setNewListItem', resultItem);
         } else {
             console.log("item wasn't created");
@@ -77,7 +79,7 @@ io.on('connection', async (socket) => {
 
     });
 
-    socket.on ('onProjectDeleted', async (listID) =>{
+    socket.on('onProjectDeleted', async (listID) => {
         const result = await projectsObject.deleteProject(listID);
         if (result) {
             console.log('Project was deleted');

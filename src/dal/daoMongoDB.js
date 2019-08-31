@@ -3,12 +3,21 @@ const dbURL          = 'mongodb://TestUser:testpassword123@ds213968.mlab.com:139
 const dbName         = 'heroku_1387qc5g';
 const collectionName = 'projects';
 
+// const dbURL          = "mongodb://127.0.0.1:27017/";
+// const dbName         = 'items_db';
+// const collectionName = 'items';
+
 class daoMongoDB {
     constructor() {
         this.projectItems = [];
     }
 
     async createList(item) {
+        if (item.listName === undefined||
+            item.listName === null||
+            item.listName.trim().length ===0){
+            item.listName = "Default Name"
+        }
         const connection = await mongo.connect(dbURL);
         const db         = await connection.db(dbName);
         const collection = await db.createCollection(collectionName);

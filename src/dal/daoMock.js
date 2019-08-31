@@ -20,7 +20,7 @@ class DaoMock {
         const newItem = item;
         newItem.listID = this.newID();
         this.ProjectItems.push(newItem);
-        return (newItem.listID);
+        return (newItem);
     }
 
     async readLists() {
