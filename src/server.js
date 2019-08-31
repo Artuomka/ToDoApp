@@ -16,7 +16,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 const projectsObject = new DaoMongoDB();
 
 const connections = [];
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '/src/build')));
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
